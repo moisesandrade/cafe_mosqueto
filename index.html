@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Café Mosqueto · Uniformes</title>
+<meta name="description" content="Propuesta de uniformes para Café Mosqueto, Santiago de Chile. Dirección de arte: FLAMA.MEDIA.">
+<meta name="theme-color" content="#1A1714">
+<meta property="og:title" content="Café Mosqueto · Uniformes">
+<meta property="og:description" content="Catorce camisetas, dos caracteres. Propuesta de FLAMA.MEDIA.">
+<meta property="og:image" content="img/mock_07.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Courier+Prime:wght@400;700&family=Caveat+Brush&display=swap">
+<style>
+/* Layout: mobile-first, una columna con carruseles táctiles (scroll-snap) que en escritorio pasan a rejillas. Dos colecciones (con humor / gráfica y sobria). Al tocar un diseño se abre una ficha a pantalla completa que se desliza entre diseños. Look único y deliberado: tinta y papel crudo. */
+:root{
+  --ink:#1A1714; --ink2:#24201B; --paper:#E8E2CC; --paper2:#F2EDDD; --cream:#EDE6D0;
+  --mute-d:#BDB5A0; --mute-l:#4A4339; --line-l:#D3CBB0; --line-d:#3A342D;
+  --terra:#9A4B2D; --terra-l:#D9895F;
+  --f-display:'DM Serif Display', Georgia, serif;
+  --f-body:'DM Sans', Arial, sans-serif;
+  --f-mono:'Courier Prime', 'Courier New', monospace;
+  --f-brush:'Caveat Brush', 'Brush Script MT', cursive;
+  --gl:max(18px, env(safe-area-inset-left, 0px));
+  --gr:max(18px, env(safe-area-inset-right, 0px));
+  --tabbar:64px;
+  color-scheme: dark;
+}
+@media (min-width:900px){:root{--gl:max(48px, env(safe-area-inset-left, 0px));--gr:max(48px, env(safe-area-inset-right, 0px));--tabbar:0px}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--ink);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tabbar) + env(safe-area-inset-bottom, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:60;background:var(--ink)}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+h1,h2,h3{font-weight:400;text-wrap:balance}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--terra-l);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.eb{font:400 12px/1.3 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--terra-l)}
+.paper .eb,.paper2 .eb{color:var(--terra)}
+.brush{font-family:var(--f-brush);line-height:1.08;color:var(--terra-l)}
+.paper .brush,.paper2 .brush{color:var(--terra)}
+.h2{font:400 clamp(32px,6vw,60px)/1.05 var(--f-display)}
+.lead{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--mute-d);max-width:60ch}
+.paper{background:var(--paper);color:var(--ink)} .paper .lead{color:var(--mute-l)}
+.paper2{background:var(--paper2);color:var(--ink)} .paper2 .lead{color:var(--mute-l)}
+section{scroll-margin-top:calc(60px + env(safe-area-inset-top, 0px))}
+.band{padding-block:clamp(56px,9vw,128px)}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(28px,4vw,48px)}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:50;background:rgba(26,23,20,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.brand{font:700 12px/1 var(--f-mono);letter-spacing:.14em;color:var(--cream);text-decoration:none;white-space:nowrap}
+.brand b{color:var(--terra-l);font-weight:700}
+.toplinks{display:none;margin-left:auto;gap:4px}
+.toplinks a{font-size:14px;color:var(--mute-d);text-decoration:none;padding:8px 14px;border-radius:999px}
+.toplinks a:hover{color:var(--cream)} .toplinks a.on{background:var(--cream);color:var(--ink)}
+.topcta{margin-left:auto;font-size:13px;font-weight:700;color:var(--ink);background:var(--terra-l);text-decoration:none;padding:9px 14px;border-radius:999px;white-space:nowrap}
+@media (min-width:900px){.toplinks{display:flex}.topcta{display:none}}
+
+/* barra inferior (móvil) */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(26,23,20,.97);border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr);padding:0 var(--gr) env(safe-area-inset-bottom, 0px) var(--gl);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tabbar a{height:var(--tabbar);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;letter-spacing:.04em;color:var(--mute-d);text-decoration:none}
+.tabbar a span{font:400 20px/1 var(--f-brush)}
+.tabbar a.on{color:var(--cream)} .tabbar a.on span{color:var(--terra-l)}
+@media (min-width:900px){.tabbar{display:none}}
+
+/* hero */
+.hero{padding-top:clamp(36px,7vw,96px)}
+.hero h1{font:400 clamp(48px,11vw,140px)/.95 var(--f-display);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--terra-l)}
+.hero .sub{font-size:clamp(28px,5vw,48px);margin-top:10px}
+.hero-row{display:grid;gap:22px;margin-top:22px}
+@media (min-width:1000px){.hero-row{grid-template-columns:1fr auto;align-items:end;gap:48px}}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:13px 20px;border-radius:999px;border:1px solid var(--line-d);color:var(--cream)}
+.btn.solid{background:var(--terra-l);border-color:var(--terra-l);color:var(--ink)}
+.btn:hover{border-color:var(--cream)}
+
+/* carrusel táctil genérico */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px var(--gr) 14px var(--gl);scroll-padding-inline:var(--gl)}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{scroll-snap-align:start;flex:none}
+.hero .rail{margin-top:clamp(32px,5vw,56px)}
+.shot{padding:0;border:0;background:none;cursor:pointer;border-radius:12px;overflow:hidden}
+.shot img{height:clamp(340px,60vh,620px);width:auto;aspect-ratio:9/16;object-fit:cover}
+.railnav{display:none;gap:8px;justify-content:flex-end;margin-top:8px}
+@media (hover:hover) and (min-width:900px){.railnav{display:flex}}
+.rbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-d);background:var(--ink2);cursor:pointer;font-size:18px}
+.rbtn:hover{background:var(--cream);color:var(--ink)}
+
+/* proceso */
+.statement{font:400 clamp(30px,5.4vw,72px)/1.05 var(--f-display);max-width:19ch}
+.steps{display:grid;gap:12px;margin-top:32px;grid-template-columns:1fr 1fr}
+@media (min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}}
+.step{background:var(--paper2);border:1px solid var(--line-l);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.step .n{font:400 38px/1 var(--f-brush);color:var(--terra)}
+.step h3{font:700 17px/1.2 var(--f-body)}
+.step p{font-size:14px;line-height:1.45;color:var(--mute-l)}
+@media (min-width:900px){.step{padding:26px}.step h3{font-size:21px}.step p{font-size:16px}}
+
+/* investigación */
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:24px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:transparent;border:1px solid var(--line-d);color:var(--mute-d);padding:10px 16px;border-radius:999px;cursor:pointer;font-size:14px}
+.tab[aria-selected="true"]{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.panel{display:grid;gap:28px;align-items:center}
+@media (min-width:960px){.panel{grid-template-columns:1.1fr .9fr;gap:56px}}
+.panel ul{padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:clamp(17px,1.5vw,21px);color:var(--mute-d)}
+.panel .art{width:min(100%,420px);justify-self:center;border-radius:10px}
+.stat{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:baseline;border-top:1px solid var(--line-d);padding-block:18px}
+.stat strong{font:400 clamp(40px,6vw,80px)/1 var(--f-display);color:var(--terra-l);font-variant-numeric:tabular-nums}
+@media (min-width:600px){.stat{grid-template-columns:200px 1fr}}
+.stat span{color:var(--mute-d)}
+.src{font:400 12px/1.5 var(--f-mono);color:var(--mute-d);margin-top:10px}
+.ideas{display:grid;gap:12px}
+@media (min-width:700px){.ideas{grid-template-columns:1fr 1fr}}
+.idea{background:var(--ink2);border:1px solid var(--line-d);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.idea h3{font:400 24px/1.15 var(--f-display)}
+.idea p{color:var(--mute-d)}
+
+/* dirección */
+.dir{display:grid;gap:36px;align-items:center}
+@media (min-width:1000px){.dir{grid-template-columns:.9fr 1.1fr;gap:64px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line-l);background:var(--paper);font-size:14px}
+.chip i{width:16px;height:16px;border-radius:50%;border:1px solid var(--mute-d)}
+.sig{font:400 15px/1.4 var(--f-mono);overflow-wrap:anywhere}
+.compare{position:relative;aspect-ratio:2.3/1;border-radius:16px;overflow:hidden;background:#ffffff;border:1px solid var(--line-l);touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6%}
+.compare .after{background:var(--paper2);clip-path:inset(0 0 0 var(--cut,50%))}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;background:var(--terra);transform:translateX(-1px);pointer-events:none}
+.compare .knob{position:absolute;top:50%;left:var(--cut,50%);transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--terra);color:var(--paper2);display:grid;place-items:center;font:700 16px/1 var(--f-body);pointer-events:none}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp-labels{display:flex;justify-content:space-between;font:400 12px/1 var(--f-mono);color:var(--mute-l);margin-top:10px;letter-spacing:.1em;text-transform:uppercase}
+
+/* mosquito */
+.mosq{background:var(--terra);color:var(--paper2)}
+.mosq .eb{color:var(--paper2)}
+.mosq h2{font:400 clamp(44px,9vw,120px)/1 var(--f-brush);max-width:15ch;margin-top:14px}
+.mosq p{max-width:58ch;margin-top:18px;font-size:clamp(16px,1.4vw,19px)}
+
+/* colecciones */
+.colhead{display:grid;gap:14px;margin-bottom:24px}
+@media (min-width:1000px){.colhead{grid-template-columns:1fr auto;align-items:end}}
+.badge{display:inline-flex;align-items:center;gap:8px;font:400 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1px solid currentColor;width:max-content}
+.cards{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px var(--gr) 14px var(--gl);scroll-padding-inline:var(--gl)}
+.cards::-webkit-scrollbar{display:none}
+@media (min-width:900px){.cards{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;padding:0;gap:22px}}
+.card{flex:0 0 74vw;max-width:340px;scroll-snap-align:start;padding:0;border:0;background:none;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px}
+@media (min-width:900px){.card{max-width:none}}
+.card .pic{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:var(--paper2)}
+.card .pic img{width:100%;height:100%;object-fit:cover;object-position:center 32%;transition:transform .5s ease}
+.card .pic img.flat{object-fit:contain;object-position:center;padding:4%}
+.card:hover .pic img{transform:scale(1.035)}
+@media (prefers-reduced-motion: reduce){.card .pic img{transition:none}.card:hover .pic img{transform:none}}
+.card .ov{position:absolute;right:10px;bottom:10px;width:30%;aspect-ratio:1172/1743;border-radius:6px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.35);border:2px solid var(--paper2)}
+.card .ov img{width:100%;height:100%;object-fit:cover}
+.card .k{font:400 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--terra-l)}
+.paper .card .k,.paper2 .card .k{color:var(--terra)}
+.card h3{font:400 23px/1.1 var(--f-display)}
+.card .c{font:400 20px/1.15 var(--f-brush);color:var(--terra-l)}
+.paper .card .c,.paper2 .card .c{color:var(--terra)}
+.hint{font:400 12px/1.4 var(--f-mono);color:var(--mute-d);margin-top:6px}
+.paper .hint,.paper2 .hint{color:var(--mute-l)}
+@media (min-width:900px){.hint{display:none}}
+
+/* equipo */
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:700px){.team{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.team{grid-template-columns:repeat(5,1fr);gap:14px}}
+.member{position:relative;padding:0;border:0;background:none;cursor:pointer;border-radius:12px;overflow:hidden;text-align:left}
+.member img{width:100%;aspect-ratio:9/16;object-fit:cover}
+.member span{position:absolute;inset:auto 0 0 0;padding:36px 10px 10px;background:linear-gradient(180deg,rgba(26,23,20,0),rgba(26,23,20,.9));font:400 16px/1.1 var(--f-display);color:var(--cream)}
+
+/* cierre */
+.close-grid{display:grid;gap:36px;align-items:center}
+@media (min-width:1000px){.close-grid{grid-template-columns:1.1fr .9fr;gap:64px}}
+.close h2{font:400 clamp(44px,8vw,104px)/1 var(--f-brush);color:var(--cream)}
+.next{margin-top:22px;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:var(--mute-d);font-size:17px}
+.contact{display:flex;flex-direction:column;gap:10px;margin-top:32px;border-top:1px solid var(--line-d);padding-top:24px}
+.contact .who{font:400 28px/1.1 var(--f-display)}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail code{font:400 17px/1 var(--f-mono);user-select:all}
+.copy{background:var(--cream);color:var(--ink);border:0;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:700;font-size:14px}
+.close-img{border-radius:16px;width:100%;max-width:460px;justify-self:center;aspect-ratio:9/16;object-fit:cover}
+footer{border-top:1px solid var(--line-d);padding-block:24px;font:400 12px/1.5 var(--f-mono);color:var(--mute-d)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* ficha a pantalla completa */
+.sheet{position:fixed;inset:0;z-index:100;background:var(--ink);display:flex;flex-direction:column}
+.sh-top{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top, 0px)) var(--gr) 10px var(--gl);border-bottom:1px solid var(--line-d)}
+.sh-col{font:400 11px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--terra-l)}
+.sh-count{font:400 13px/1 var(--f-mono);color:var(--mute-d);font-variant-numeric:tabular-nums}
+.sh-meta{display:flex;flex-direction:column;gap:4px;min-width:0}
+.seg{margin-left:auto;display:flex;background:var(--ink2);border:1px solid var(--line-d);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:8px 12px;border-radius:999px;font-size:13px;cursor:pointer;color:var(--mute-d);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--cream);color:var(--ink)}
+.x{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-d);background:var(--ink2);cursor:pointer;font-size:18px}
+.strip{flex:1;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior:contain}
+.strip::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;overflow-y:auto;padding:18px var(--gr) calc(24px + env(safe-area-inset-bottom, 0px)) var(--gl);display:flex;flex-direction:column;gap:18px}
+.imgs{display:flex;justify-content:center;align-items:center}
+.imgs img{max-height:62vh;width:auto;max-width:100%;border-radius:12px}
+.imgs .m{aspect-ratio:9/16;object-fit:cover}
+@media (max-width:899px){.sheet[data-view="g"] .slide .m,.sheet[data-view="m"] .slide.has-m .g{display:none}}
+.txt{display:flex;flex-direction:column;gap:8px;max-width:560px;margin-inline:auto;width:100%}
+.txt h3{font:400 clamp(30px,7vw,52px)/1.05 var(--f-display)}
+.txt .c{font:400 clamp(24px,5vw,34px)/1.1 var(--f-brush);color:var(--terra-l)}
+.txt .d{color:var(--mute-d)}
+.txt .sh{display:inline-flex;align-items:center;gap:8px;font:400 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute-d);margin-top:4px}
+.txt .sh i{width:13px;height:13px;border-radius:50%;border:1px solid var(--mute-d)}
+.txt .pend{font:400 12px/1.4 var(--f-mono);color:var(--mute-d)}
+.sh-nav{display:none}
+@media (min-width:900px){
+  .seg{display:none}
+  .slide{flex-direction:row;align-items:center;justify-content:center;gap:40px;padding:28px var(--gr) 28px var(--gl)}
+  .imgs{gap:24px;flex:none}
+  .imgs img{max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px)}
+  .imgs .g{max-width:34vw}
+  .imgs .m{max-width:30vw}
+  .txt{margin:0;max-width:380px}
+  .sh-nav{display:flex;gap:8px;margin-left:auto}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">FLAMA.MEDIA <b>×</b> MOSQUETO</a>
+    <nav class="toplinks" id="toplinks" aria-label="Secciones">
+      <a href="#proceso">Proceso</a><a href="#investigacion">Investigación</a><a href="#direccion">Dirección</a><a href="#humor">Con humor</a><a href="#sobria">Gráfica y sobria</a><a href="#contacto">Contacto</a>
+    </nav>
+    <a class="topcta" href="#humor">Ver diseños</a>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <p class="eb">Propuesta de uniformes · Octubre 2026</p>
+    <h1 style="margin-top:14px">Uniformes con <em>historia</em></h1>
+    <p class="brush sub">Catorce camisetas, dos caracteres.</p>
+    <div class="hero-row">
+      <p class="lead">Diseños dibujados a pincel y tinta china para el equipo de Café Mosqueto, en dos líneas: una con humor, para sacar una sonrisa, y otra gráfica y sobria, para mirar con calma.</p>
+      <div class="btns"><a class="btn solid" href="#humor">Con humor</a><a class="btn" href="#sobria">Gráfica y sobria</a></div>
+    </div>
+  </div>
+  <div class="rail" id="heroRail" aria-label="Mockups en el café"></div>
+  <div class="wrap railnav"><button class="rbtn" data-rail="heroRail" data-dir="-1" aria-label="Anterior">←</button><button class="rbtn" data-rail="heroRail" data-dir="1" aria-label="Siguiente">→</button></div>
+</section>
+
+<section id="proceso" class="band paper">
+  <div class="wrap">
+    <p class="eb">El punto de partida</p>
+    <p class="statement" style="margin-top:14px">La espalda de quien atiende es el cartel que más se mira en el café.</p>
+    <p class="lead" style="margin-top:18px">El delantal tapa el pecho casi todo el día. La espalda queda libre, y es lo que el cliente ve cuando el mesero se va con su pedido.</p>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Investigar</h3><p>Historia, barrio, redes y lo que dicen los clientes.</p></div>
+      <div class="step"><span class="n">02</span><h3>Definir</h3><p>Pincel, tinta china y letras hechas a mano.</p></div>
+      <div class="step"><span class="n">03</span><h3>Dibujar</h3><p>Catorce finalistas en dos líneas de diseño.</p></div>
+      <div class="step"><span class="n">04</span><h3>Probar</h3><p>Cada diseño en una escena real de café.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="investigacion" class="band">
+  <div class="wrap">
+    <div class="head"><p class="eb">La investigación</p><h2 class="h2">Mosqueto 440, el refugio del centro</h2></div>
+    <div class="tabs" role="tablist" aria-label="Investigación">
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">El lugar</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">En números</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Cuatro ideas</button>
+    </div>
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+      <ul>
+        <li>Una calle casi peatonal, a pasos del Metro Bellas Artes y del Museo Nacional de Bellas Artes.</li>
+        <li>Nació como café literario; hoy los libros siguen en los estantes, casi de adorno.</li>
+        <li>Madera oscura, plantas, pizarras escritas a mano y terraza en la calle.</li>
+      </ul>
+      <img class="art" data-img="graf_01" alt="Ilustración a pincel del interior del café con estantes de libros">
+    </div>
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <div>
+        <div class="stat"><strong>88 %</strong><span>lo recomienda en Facebook, sobre 386 opiniones</span></div>
+        <div class="stat"><strong>Top 10</strong><span>entre los cafés y teterías de Santiago en Tripadvisor</span></div>
+        <div class="stat"><strong>+1.500</strong><span>títulos en su librería, según Santiago Turismo</span></div>
+        <p class="src">Fuentes: Facebook de Café Mosqueto, Tripadvisor y santiagoturismo.cl, consultadas en octubre de 2026.</p>
+      </div>
+      <img class="art" data-img="graf_12" alt="Inventario de objetos del café dibujados a pincel">
+    </div>
+    <div role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+      <div class="ideas">
+        <div class="idea"><h3>Ya tienen tribu</h3><p>En sus redes llaman a sus clientes «amigos mosqueteros».</p></div>
+        <div class="idea"><h3>Un café literario jubilado</h3><p>Los libros siguen en los estantes, aunque ya casi nadie los lee.</p></div>
+        <div class="idea"><h3>A una calle del ruido</h3><p>Los clientes valoran la terraza tranquila, lejos de la avenida.</p></div>
+        <div class="idea"><h3>El sándwich también manda</h3><p>En las reseñas compite con el café por el protagonismo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="direccion" class="band paper2">
+  <div class="wrap dir">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="eb">La dirección visual</p>
+      <h2 class="h2">Hecho por humanos</h2>
+      <p class="lead">Tinta china, pincel seco y letras rotuladas a mano. Pocas líneas y mucho aire.</p>
+      <div class="chips"><span class="chip"><i style="background:#1A1714"></i>Negra · tinta crema</span><span class="chip"><i style="background:#E8E2CC"></i>Beige crudo · tinta negra</span></div>
+      <p class="lead">Serigrafía a una sola tinta. La firma va en máquina de escribir, como guiño al café literario:</p>
+      <p class="sig">Café Mosqueto • Mosqueto 440 • Santiago</p>
+    </div>
+    <div>
+      <p class="eb" style="margin-bottom:12px">El logo, pasado por el pincel · desliza</p>
+      <div class="compare" id="compare">
+        <img data-img="logo_original" alt="Logo original de Café Mosqueto">
+        <img class="after" data-img="logo_pincel" alt="Logo de Café Mosqueto redibujado a pincel">
+        <div class="bar"></div><div class="knob" aria-hidden="true">↔</div>
+        <input type="range" min="0" max="100" value="50" id="cmp" aria-label="Comparar logo original y logo a pincel">
+      </div>
+      <div class="cmp-labels"><span>Antes</span><span>Después</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band mosq" aria-label="Una decisión importante">
+  <div class="wrap">
+    <p class="eb">Una decisión importante</p>
+    <h2>Ningún mosquito fue dibujado durante este proyecto.</h2>
+    <p>Mosqueto suena a mosquito, sí. Pero en la ropa de quien sirve comida ese chiste sale caro, así que lo dejamos fuera a propósito.</p>
+  </div>
+</section>
+
+<section id="humor" class="band">
+  <div class="wrap colhead">
+    <div class="head" style="margin:0"><span class="badge" style="color:var(--terra-l)">Línea 1 · 8 diseños</span><h2 class="h2">Con humor</h2>
+      <p class="lead">Un juego de palabras y un dibujo que lo remata. Humor amable, que deja bien parado a quien lleva la camiseta y abre conversación con el cliente.</p></div>
+  </div>
+  <div class="cards" id="cards-humor"></div>
+  <div class="wrap"><p class="hint">Desliza para ver más · toca un diseño para abrirlo</p></div>
+</section>
+
+<section id="sobria" class="band paper">
+  <div class="wrap colhead">
+    <div class="head" style="margin:0"><span class="badge" style="color:var(--terra)">Línea 2 · 6 diseños</span><h2 class="h2">Gráfica y sobria</h2>
+      <p class="lead">Sin chistes: gestos, objetos y escenas del café, dibujados con calma. Una línea más decorativa, para mirar despacio.</p></div>
+  </div>
+  <div class="cards" id="cards-sobria"></div>
+  <div class="wrap"><p class="hint">Desliza para ver más · toca un diseño para abrirlo</p></div>
+</section>
+
+<section id="equipo" class="band">
+  <div class="wrap">
+    <div class="head"><p class="eb">El equipo completo</p><h2 class="h2">Uno para todos</h2>
+      <p class="lead">Cada persona puede llevar un diseño distinto y aun así se ven como una familia.</p></div>
+    <div class="team" id="team"></div>
+  </div>
+</section>
+
+<section id="contacto" class="band paper2 close" style="background:var(--ink)">
+  <div class="wrap close-grid">
+    <div>
+      <p class="eb" style="margin-bottom:16px">Lo que sigue</p>
+      <h2>Uno para todos, todos por un cortado.</h2>
+      <ol class="next">
+        <li>Elegimos juntos los diseños finales de cada línea.</li>
+        <li>Preparamos los archivos para serigrafía a una tinta.</li>
+        <li>Muestra física, prueba de lavado y producción.</li>
+      </ol>
+      <div class="contact">
+        <p class="who">FLAMA.MEDIA</p>
+        <p style="color:var(--mute-d)">Moisés Andrade · Director de arte</p>
+        <div class="mail"><code id="mail">hola@flama.media</code><button class="copy" id="copy">Copiar correo</button></div>
+      </div>
+    </div>
+    <img class="close-img" data-img="mock_10" alt="Mesera de espaldas con la camiseta Uno para todos">
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>FLAMA.MEDIA × Café Mosqueto · 2026</span><span>Ilustración a pincel y tinta china</span></div></footer>
+
+<nav class="tabbar" id="tabbar" aria-label="Accesos rápidos">
+  <a href="#inicio"><span>✶</span>Inicio</a>
+  <a href="#humor"><span>☺</span>Con humor</a>
+  <a href="#sobria"><span>◐</span>Sobria</a>
+  <a href="#contacto"><span>✉</span>Contacto</a>
+</nav>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sh-col" data-view="m">
+  <div class="sh-top">
+    <div class="sh-meta"><span class="sh-col" id="sh-col"></span><span class="sh-count" id="sh-count"></span></div>
+    <div class="seg" role="group" aria-label="Vista"><button data-v="m" aria-pressed="true">En el café</button><button data-v="g" aria-pressed="false">Gráfico</button></div>
+    <div class="sh-nav"><button class="rbtn" id="sh-prev" aria-label="Diseño anterior">←</button><button class="rbtn" id="sh-next" aria-label="Diseño siguiente">→</button></div>
+    <button class="x" id="sh-x" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="strip" id="strip"></div>
+</div>
+
+<script>
+const IMG = {"graf_01": "img/graf_01.jpg", "graf_02": "img/graf_02.jpg", "graf_03": "img/graf_03.jpg", "graf_04": "img/graf_04.jpg", "graf_05": "img/graf_05.jpg", "graf_06": "img/graf_06.jpg", "graf_07": "img/graf_07.jpg", "graf_08": "img/graf_08.jpg", "graf_09": "img/graf_09.jpg", "graf_10": "img/graf_10.jpg", "graf_11": "img/graf_11.jpg", "graf_12": "img/graf_12.jpg", "graf_13": "img/graf_13.jpg", "graf_14": "img/graf_14.jpg", "logo_original": "img/logo_original.jpg", "logo_pincel": "img/logo_pincel.jpg", "mock_01": "img/mock_01.jpg", "mock_02": "img/mock_02.jpg", "mock_03": "img/mock_03.jpg", "mock_04": "img/mock_04.jpg", "mock_05": "img/mock_05.jpg", "mock_06": "img/mock_06.jpg", "mock_07": "img/mock_07.jpg", "mock_08": "img/mock_08.jpg", "mock_09": "img/mock_09.jpg", "mock_10": "img/mock_10.jpg", "mock_11": "img/mock_11.jpg", "mock_12": "img/mock_12.jpg", "mock_13": "img/mock_13.jpg", "mock_14": "img/mock_14.jpg"};
+const COLS = {
+  humor: {name:'Con humor', items:[
+    {k:'07',t:'Cortado largo',c:'El favorito del estudio. Mide lo que pide.',d:'La palabra hace el chiste y el dibujo lo remata: un perro salchicha con tres cortados en el lomo. Un cortado largo, literalmente.',s:'b'},
+    {k:'05',t:'Dos expresos',c:'Doble carga, misma cara de lunes.',d:'Dos gatos idénticos con el mismo ceño y una taza cada uno. El chiste está en la mirada.',s:'b'},
+    {k:'06',t:'Aquí me quedo',c:'El cliente ideal: entra y no se quiere ir.',d:'Un gato de vacaciones, con lentes de sol, flotando dentro de una taza.',s:'b'},
+    {k:'08',t:'El equilibrio perfecto',c:'Un sábado a la hora de almuerzo, resumido.',d:'Una torre de tazas sobre un solo dedo. Un homenaje a quien atiende la terraza llena.',s:'b'},
+    {k:'09',t:'Amigos mosqueteros',c:'¡En guardia! (con cucharita).',d:'El nombre con el que el café ya llama a sus clientes, convertido en un duelo de tazas.',s:'b'},
+    {k:'10',t:'Uno para todos',c:'…todos por un cortado. Y un gato atento.',d:'El mosquetero de la casa sirve desde lo alto mientras el gato no pierde detalle.',s:'b'},
+    {k:'02',t:'Todo cabe en Mosqueto 440',c:'Incluye un chupete. No preguntes.',d:'El inventario de una mesa de Mosqueto: café, sándwich, un libro, un pato de goma… y lo que alguien dejó olvidado.',s:'n'},
+    {k:'03',t:'El perro que espera',c:'No dice nada. Tampoco hace falta.',d:'Una mesa, un sándwich y un perro que lo mira con fe. El producto estrella, contado sin palabras.',s:'n'}
+  ]},
+  sobria: {name:'Gráfica y sobria', items:[
+    {k:'13',t:'Aquí empiezan las buenas historias',c:'El vapor une la taza con el logo.',d:'Un libro abierto y una taza; el vapor sube y se convierte en el trazo que lleva al logo. El guiño al café literario, sin nostalgia.',s:'b'},
+    {k:'14',t:'Bajo los jacarandás',c:'Una mesa en la vereda, en plena floración.',d:'Una rama en flor sobre la terraza: mesa, taza y silla de café, con las flores cayendo. La calle tranquila del café, convertida en escena.',s:'b'},
+    {k:'11',t:'Las manos',c:'Servir, sostener, leer, regalar una flor.',d:'Cuatro manos y cuatro gestos que pasan cada día en Mosqueto. Sin rostros: lo importante es lo que se hace.',s:'b'},
+    {k:'12',t:'Inventario',c:'Mosqueto en nueve objetos.',d:'Taza, croissant, marraqueta, cafetera, libro, lámpara, silla, planta y flor. Un índice del lugar dibujado a pincel.',s:'b'},
+    {k:'01',t:'Café Mosqueto 440',c:'El retrato del lugar.',d:'Libros, lámpara y una buena conversación, con un perro dormido bajo la mesa. El Mosqueto de siempre.',s:'n'},
+    {k:'04',t:'La mesa del gato',c:'Una mesa vista desde arriba, a media tarde.',d:'Café, sándwich, lentes y un gato dormido sobre el libro. El café literario, en calma.',s:'b'}
+  ]}
+};
+const SHIRT = {b:['Camiseta beige crudo · tinta negra','#E8E2CC'], n:['Camiseta negra · tinta crema','#1A1714']};
+const $ = s => document.querySelector(s);
+const hasM = k => !!IMG['mock_' + k];
+const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+const img = (key, alt, cls) => { const i = new Image(); i.src = IMG[key]; i.alt = alt; if (cls) i.className = cls; return i; };
+
+document.querySelectorAll('[data-img]').forEach(el => el.src = IMG[el.dataset.img]);
+
+/* hero rail: todos los mockups */
+const heroRail = $('#heroRail');
+Object.entries(COLS).forEach(([cid, col]) => col.items.forEach((d, i) => {
+  if (!hasM(d.k)) return;
+  const b = mk('button', 'shot'); b.setAttribute('aria-label', 'Abrir ' + d.t);
+  b.appendChild(img('mock_' + d.k, 'Mockup ' + d.t)); b.onclick = () => openSheet(cid, i);
+  heroRail.appendChild(b);
+}));
+document.querySelectorAll('.rbtn[data-rail]').forEach(b => b.onclick = () => {
+  const r = document.getElementById(b.dataset.rail); r.scrollBy({left: r.clientWidth * .8 * +b.dataset.dir, behavior: 'smooth'});
+});
+
+/* tarjetas */
+Object.entries(COLS).forEach(([cid, col]) => {
+  const box = document.getElementById('cards-' + cid);
+  col.items.forEach((d, i) => {
+    const b = mk('button', 'card'); b.setAttribute('aria-label', 'Abrir ' + d.t);
+    const pic = mk('div', 'pic');
+    if (hasM(d.k)) { pic.appendChild(img('mock_' + d.k, '')); const ov = mk('div', 'ov'); ov.appendChild(img('graf_' + d.k, '')); pic.appendChild(ov); }
+    else { const g = img('graf_' + d.k, '', 'flat'); pic.style.background = d.s === 'n' ? '#111' : '#E5DFC8'; pic.appendChild(g); }
+    b.append(pic, mk('span', 'k', String(i + 1).padStart(2, '0') + ' · ' + col.name), mk('h3', null, d.t), mk('span', 'c', d.c));
+    b.onclick = () => openSheet(cid, i);
+    box.appendChild(b);
+  });
+});
+
+/* equipo */
+const team = $('#team');
+Object.entries(COLS).forEach(([cid, col]) => col.items.forEach((d, i) => {
+  if (!hasM(d.k)) return;
+  const b = mk('button', 'member'); b.setAttribute('aria-label', 'Abrir ' + d.t);
+  b.append(img('mock_' + d.k, ''), mk('span', null, d.t)); b.onclick = () => openSheet(cid, i);
+  team.appendChild(b);
+}));
+
+/* ficha */
+const sheet = $('#sheet'), strip = $('#strip'); let cur = null, lastFocus = null;
+function buildSheet(cid) {
+  strip.innerHTML = ''; const col = COLS[cid];
+  $('#sh-col').textContent = col.name;
+  col.items.forEach(d => {
+    const s = mk('article', 'slide' + (hasM(d.k) ? ' has-m' : ''));
+    const ims = mk('div', 'imgs');
+    if (hasM(d.k)) ims.appendChild(img('mock_' + d.k, 'Miembro del equipo de espaldas con la camiseta ' + d.t, 'm'));
+    ims.appendChild(img('graf_' + d.k, 'Gráfico ' + d.t, 'g'));
+    const t = mk('div', 'txt');
+    t.append(mk('h3', null, d.t), mk('p', 'c', d.c), mk('p', 'd', d.d));
+    const sh = mk('p', 'sh'); const dot = mk('i'); dot.style.background = SHIRT[d.s][1]; sh.append(dot, mk('span', null, SHIRT[d.s][0])); t.appendChild(sh);
+    if (!hasM(d.k)) t.appendChild(mk('p', 'pend', 'Mockup en el café: en preparación.'));
+    s.append(ims, t); strip.appendChild(s);
+  });
+}
+function count() { const n = COLS[cur].items.length; const i = Math.round(strip.scrollLeft / strip.clientWidth); $('#sh-count').textContent = (Math.min(i, n - 1) + 1) + ' de ' + n; return i; }
+function openSheet(cid, i) {
+  lastFocus = document.activeElement;
+  if (cur !== cid) { cur = cid; buildSheet(cid); }
+  sheet.hidden = false; document.body.classList.add('lock');
+  requestAnimationFrame(() => { strip.scrollTo({left: strip.clientWidth * i, behavior: 'instant'}); count(); });
+  $('#sh-x').focus();
+}
+function closeSheet() { sheet.hidden = true; document.body.classList.remove('lock'); if (lastFocus) lastFocus.focus(); }
+function step(n) { strip.scrollBy({left: strip.clientWidth * n, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); }
+strip.addEventListener('scroll', () => { if (cur) count(); }, {passive: true});
+$('#sh-x').onclick = closeSheet; $('#sh-prev').onclick = () => step(-1); $('#sh-next').onclick = () => step(1);
+sheet.querySelectorAll('.seg button').forEach(b => b.onclick = () => {
+  sheet.dataset.view = b.dataset.v; sheet.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', x === b));
+});
+document.addEventListener('keydown', e => {
+  if (sheet.hidden) return;
+  if (e.key === 'Escape') closeSheet(); else if (e.key === 'ArrowRight') step(1); else if (e.key === 'ArrowLeft') step(-1);
+});
+addEventListener('resize', () => { if (!sheet.hidden) { const i = count(); strip.scrollTo({left: strip.clientWidth * i, behavior: 'instant'}); } });
+
+/* pestañas investigación */
+const tabs = [...document.querySelectorAll('#investigacion .tab')];
+function sel(t) { tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; }); }
+tabs.forEach((t, i) => { t.onclick = () => sel(t); t.onkeydown = e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; sel(n); n.focus(); } }; });
+
+/* comparador */
+const cmp = $('#compare'), rng = $('#cmp'); rng.oninput = () => cmp.style.setProperty('--cut', rng.value + '%');
+
+</script>
+<script>
+/* navegación activa */
+var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) document.querySelectorAll('#toplinks a, #tabbar a').forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); }); }, {rootMargin: '-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+/* copiar correo */
+document.getElementById('copy').onclick = async function () {
+  var btn = this;
+  try { await navigator.clipboard.writeText('hola@flama.media'); btn.textContent = 'Copiado'; }
+  catch (e) { var r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Seleccionado'; }
+  setTimeout(function () { btn.textContent = 'Copiar correo'; }, 2200);
+};
+</script>
+
+</body>
+</html>
